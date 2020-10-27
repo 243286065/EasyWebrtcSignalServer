@@ -1,9 +1,9 @@
 [submodule "src/lib/rapidjson"]
 	path = src/lib/rapidjson
 	url = https://github.com/Tencent/rapidjson.git
-[submodule "src/lib/boost"]
-	path = src/lib/boost
-	url = https://github.com/boostorg/boost.git
 [submodule "src/lib/websocketpp"]
 	path = src/lib/websocketpp
 	url = https://github.com/zaphoyd/websocketpp.git
+[submodule "src/lib/asio"]
+	path = src/lib/asio
+	url = https://github.com/chriskohlhoff/asio.git
