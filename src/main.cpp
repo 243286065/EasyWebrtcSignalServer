@@ -1,6 +1,7 @@
-#include "websocketpp/config/asio_no_tls.hpp"
-#include "websocketpp/server.hpp"
+#include "server/signal_server.h"
 
 int main() {
+    SignalServer server(9091);
+    server.Start();
     return 0;
 }

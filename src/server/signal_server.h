@@ -16,8 +16,24 @@ class SignalServer {
 
  private:
   typedef websocketpp::server<websocketpp::config::asio> server;
+  // pull out the type of messages sent by our config
+  typedef server::message_ptr message_ptr;
 
-  std::unique_ptr<server> server_;
+  void OnMessageHandler(std::shared_ptr<server> s,
+                        websocketpp::conn ection_hdl hdl,
+                        message_ptr msg);
+  void OnConnectSuccHandler(std::shared_ptr<server> s,
+                            websocketpp::connection_hdl hdl);
+  void OnConnectFailHandler(std::shared_ptr<server> s,
+                            websocketpp::connection_hdl hdl);
+  void OnCloseHandler(std::shared_ptr<server> s,
+                      websocketpp::connection_hdl hdl);
+
+  void ParseMessage(std::shared_ptr<server> s,
+                    websocketpp::connection_hdl hdl,
+                    const std::string& message);
+
+  std::shared_ptr<server> server_;
 
   size_t port_;
 };
